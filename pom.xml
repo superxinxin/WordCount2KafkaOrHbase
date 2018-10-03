@@ -1,0 +1,121 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.demo</groupId>
+  <artifactId>SparkStreamingWordCount2</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>SparkStreamingWordCount2</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>javax.servlet-api</artifactId>
+    	<version>3.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-streaming-kafka-0-10_2.11</artifactId>
+      <version>2.3.1</version>
+</dependency>
+        
+        <dependency>
+        	<groupId>org.apache.spark</groupId>
+        	<artifactId>spark-streaming_2.11</artifactId>
+        	<version>2.0.1</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.spark</groupId>
+        	<artifactId>spark-launcher_2.11</artifactId>
+        	<version>2.1.0</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.scala-lang</groupId>
+        	<artifactId>scala-library</artifactId>
+        	<version>2.11.8</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.kafka</groupId>
+        	<artifactId>kafka_2.11</artifactId>
+        	<version>0.10.0.0</version>
+        </dependency>
+       
+        <dependency>
+    	<groupId>org.apache.phoenix</groupId>
+    	<artifactId>phoenix-core</artifactId>
+    	<version>5.0.0-HBase-2.0</version>
+    </dependency>
+    
+        <dependency>
+        <groupId>org.apache.flume</groupId>
+        <artifactId>flume-ng-sdk</artifactId>
+        <version>1.8.0</version>
+    </dependency>
+    <dependency>
+  <groupId>org.apache.avro</groupId>
+  <artifactId>avro</artifactId>
+  <version>1.8.1</version>
+</dependency>
+       
+        <dependency>
+        	<groupId>org.apache.spark</groupId>
+        	<artifactId>spark-core_2.11</artifactId>
+        	<version>2.1.0</version>
+        </dependency>
+         <dependency>
+            <groupId>jdk.tools</groupId>
+            <artifactId>jdk.tools</artifactId>
+            <version>1.8</version>
+            <scope>system</scope>
+            <systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
+    </dependency>
+
+  </dependencies>
+  <build>
+        <plugins>
+        
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- 我运行这个jar所运行的主类 -->
+                            <mainClass>com.demo.SparkStreamingWordCount2.SparkStreamingWordCount1</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>
+                            <!-- 必须是这样写 -->
+                            jar-with-dependencies
+                        </descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+            
+            <plugin>  
+            <groupId>org.apache.maven.plugins</groupId>  
+            <artifactId>maven-compiler-plugin</artifactId>  
+            <version>3.1</version>  
+            <configuration>  
+                <source>1.8</source>  
+                <target>1.8</target>  
+            </configuration>  
+        </plugin>  
+            
+        </plugins>
+    </build>
+</project>
